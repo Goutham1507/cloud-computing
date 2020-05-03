@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cce4b74c-6121-4259-8cca-ca55e44fcfac" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1Zlpq50Tr8uphf0T1PhLvr32s3d" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.proportion" value="0.21700877" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalDependencies" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cce4b74c-6121-4259-8cca-ca55e44fcfac" name="Default Changelist" comment="" />
+      <created>1585423722332</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585423722332</updated>
+      <workItem from="1585423725419" duration="12406000" />
+      <workItem from="1585506595351" duration="745000" />
+      <workItem from="1585602522144" duration="599000" />
+      <workItem from="1585611511402" duration="10247000" />
+      <workItem from="1585683626446" duration="599000" />
+      <workItem from="1585697077475" duration="599000" />
+      <workItem from="1585763310864" duration="21026000" />
+      <workItem from="1585841987856" duration="5382000" />
+      <workItem from="1586207693342" duration="612000" />
+      <workItem from="1586224762420" duration="624000" />
+      <workItem from="1586307206229" duration="599000" />
+      <workItem from="1586382662584" duration="1419000" />
+      <workItem from="1586392158283" duration="1264000" />
+      <workItem from="1586453364990" duration="1370000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="531" y="214" key="#Project_Structure" timestamp="1585423750233">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="531" y="214" key="#Project_Structure/67.27.1853.1053@67.27.1853.1053" timestamp="1585423750233" />
+    <state x="791" y="259" width="395" height="587" key="#com.intellij.ide.util.MemberChooser" timestamp="1585776353908">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="791" y="259" width="395" height="587" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1585776353908" />
+    <state x="526" y="210" width="924" height="684" key="Maven.ArtifactSearchDialog" timestamp="1585622356667">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="526" y="210" width="924" height="684" key="Maven.ArtifactSearchDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1585622356667" />
+    <state x="476" y="130" width="1030" height="845" key="SettingsEditor" timestamp="1585423942760">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="476" y="130" width="1030" height="845" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1585423942760" />
+    <state x="625" y="257" width="734" height="678" key="search.everywhere.popup" timestamp="1585440157621">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="625" y="257" width="734" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1585440157621" />
+  </component>
+</project>

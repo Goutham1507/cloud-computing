@@ -1,0 +1,115 @@
+---
+version: 2
+jobs:
+  pr_check:
+
+    working_directory: ~/webapp
+
+    docker:
+      - image: circleci/openjdk:11-jdk
+      - image: circleci/mysql:5.7.28
+        environment:
+          - MYSQL_ROOT_PASSWORD=ubuntu
+          - MYSQL_USER=admin
+          - MYSQL_PASSWORD=test1234
+          - MYSQL_DATABASE=cloud
+
+    steps:
+
+      - checkout
+      - run: mvn dependency:go-offline
+      - run: mvn package
+
+  build:
+
+    working_directory: ~/webapp
+
+    docker:
+      - image: circleci/openjdk:11-jdk
+      - image: circleci/mysql:5.7.28
+        environment:
+          - MYSQL_ROOT_PASSWORD=ubuntu
+          - MYSQL_USER=admin
+          - MYSQL_PASSWORD=test1234
+          - MYSQL_DATABASE=cloud
+
+    steps:
+
+      - checkout
+
+      - run:
+          name: Install packages
+          command: sudo rm -rf /var/lib/apt/lists/* && sudo apt-get update && sudo apt-get install wget zip unzip -y
+
+      - run:
+          name: Install curl
+          command: |
+            sudo apt-get install curl
+            sudo curl --version
+
+      - run:
+          name: AWS-CLI installation
+          command: |
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+            sudo apt-get update
+            sudo apt-get install less -y
+
+            aws --version
+
+      - run: mvn dependency:go-offline
+
+      - run:
+          name: unit test
+          command: mvn package 
+
+      - run:
+          name: Artifact build
+          command: |
+            pwd
+            ls -al
+            mvn clean install -Plocal
+            cd target/
+            ls -al
+            cd ../../..
+
+      - run:
+          name: Artifact Zip
+          command: |
+            echo "current build number is ${CIRCLE_BUILD_NUM}"
+            mkdir -p artifact
+            zip -r csye6225-web-app-${CIRCLE_BUILD_NUM}.zip /home/circleci/webapp/target/clouddemo-0.0.1-SNAPSHOT.war codedeploy/*.sh cloudwatch/*.json  appspec.yml
+            mv csye6225-web-app-${CIRCLE_BUILD_NUM}.zip artifact
+            cd artifact
+            ls -al
+
+      - run:
+          name: Upload artifact S3 bucket
+          command: |
+            aws s3 sync artifact s3://${BUCKET_NAME}
+
+      - run:
+          name:  Code Deploy
+          command: |
+            echo "code deploy triggered"
+            aws deploy create-deployment --application-name csye6225-webapp \
+                          --deployment-config-name CodeDeployDefault.AllAtOnce \
+                          --deployment-group-name csye6225-webapp-deployment \
+                          --description "CSYE6255 - CodeDeploy" \
+                          --s3-location bucket=${BUCKET_NAME},key=csye6225-web-app-${CIRCLE_BUILD_NUM}.zip,bundleType=zip \
+                          --region us-east-1 \
+                          --output json
+
+
+workflows:
+  version: 2
+  pr-check-workflow:
+    jobs:
+      - pr_check
+  build-deploy-workflow:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
